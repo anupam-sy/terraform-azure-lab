@@ -28,3 +28,6 @@ variable "avset_names" {}
 # Variable Definition - PaaS Resources
 variable "appsp_names" {}
 
+# Variable Definition - Database Resources
+variable "sqlsvr_name" {}
+
