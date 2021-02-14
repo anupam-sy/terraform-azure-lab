@@ -14,3 +14,4 @@ appsp_names = ["FC-TST-ASP-01", "FC-TST-ASP-02"]
 
 # Variable Values - Database Resources
 sqlsvr_name = "bc-tst-sqlsvr-01"
+epool_name  = "bc-tst-epool-01"

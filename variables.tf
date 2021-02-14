@@ -30,4 +30,5 @@ variable "appsp_names" {}
 
 # Variable Definition - Database Resources
 variable "sqlsvr_name" {}
+variable "epool_name" {}
 
