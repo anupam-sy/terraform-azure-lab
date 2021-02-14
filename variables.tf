@@ -23,6 +23,12 @@ variable "rs_tags" {
 }
 
 # Variable Definition - IaaS Resources
+variable "vnet_name" {}
+variable "vnet_cidr" {}
+variable "snet_name" {}
+variable "snet_cidr" {}
+variable "nsg_name" {}
+variable "nsg_rules" {}
 variable "avset_names" {}
 
 # Variable Definition - PaaS Resources
