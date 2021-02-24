@@ -11,11 +11,14 @@ If the same variable is assigned multiple values, Terraform uses the last value 
 
 Terraform loads variables in the following order, with later sources taking precedence over earlier ones:
 
-Environment variables
-1. The terraform.tfvars file, if present.
-2. The terraform.tfvars.json file, if present.
-3. Any *.auto.tfvars or *.auto.tfvars.json files, processed in lexical order of their filenames.
-4. Any -var and -var-file options on the command line, in the order they are provided. (This includes variables set by a Terraform Cloud workspace.)
+1. Environment variables
+2. The terraform.tfvars file, if present.
+3. The terraform.tfvars.json file, if present.
+4. Any *.auto.tfvars or *.auto.tfvars.json files, processed in lexical order of their filenames.
+5. Any -var and -var-file options on the command line, in the order they are provided. (This includes variables set by a Terraform Cloud workspace.)
+
+Declaring a variable means you are gonna use a variable & Defining a variable means that you are giving a variable a value.
+The *.tf file is used to declare that the variable exists whereas The *.tfvars files are used to define variables and then specify that variable definition file on the command line with -var-file.
 
 
 ## Execution:
@@ -25,7 +28,7 @@ For multiple environment provisioning, use different tfstate files in backend. T
 	[Optional] terraform validate
 
 	[Optional] terraform fmt
-	. The terraform fmt command is used to rewrite Terraform configuration files to a canonical format and style.
+	. The terraform fmt command is used to rewrite Terraform configuration files to a canonical format and style. use "-recursive" flag to format the code inside all folders.
 
 	[Optional] terraform plan -var-file="resource.tfvars" -out=tfplan
 	[Required] terraform apply -var-file="resource.tfvars" -auto-approve
