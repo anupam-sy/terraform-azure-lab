@@ -1,4 +1,4 @@
-# Variable Values - RG, Location
+# Variable Definition - RG, Location
 rg_name  = "FC-TST-RG-01"
 location = "UK South"
 rs_tags = {
@@ -6,7 +6,7 @@ rs_tags = {
   "Environment" = "TST"
 }
 
-# Variable Values - IaaS Resources
+# Variable Definition - IaaS Resources
 vnet_name = "FC-TST-VNET-01"
 vnet_cidr = ["10.0.0.0/16"]
 snet_name = ["FC-TST-WEB-SNET", "FC-TST-APP-SNET", "FC-TST-DBS-SNET"]
@@ -18,9 +18,12 @@ nsg_rules = [
 ]
 avset_names = ["FC-TST-AST-01", "FC-TST-AST-02"]
 
-# Variable Values - PaaS Resources
+# Variable Definition - PaaS Resources
 appsp_names = ["FC-TST-ASP-01", "FC-TST-ASP-02"]
 
-# Variable Values - Database Resources
+# Variable Definition - Database Resources
 sqlsvr_name = "fc-tst-sqlsvr-01"
 epool_name  = "fc-tst-epool-01"
+
+# Variable Definition - Storage Resources
+sa_name = "fctstsa01s"
