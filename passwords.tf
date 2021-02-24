@@ -7,4 +7,5 @@ resource "random_string" "tst_sqlsvr_pwd" {
 # Resource Specific Output Definition
 output "sqlsvr_pwd" {
   value = random_string.tst_sqlsvr_pwd.result
+  sensitive = true
 }
