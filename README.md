@@ -24,27 +24,29 @@ The *.tf file is used to declare that the variable exists whereas The *.tfvars f
 ## Execution:
 For multiple environment provisioning, use different tfstate files in backend. To execute the Terraform code, go to command prompt and then run the following commands:
 
-	[Required] terraform init
-	[Optional] terraform validate
+[Required] terraform init
+> To initialize the terraform with remote backend, use "-backend-config=PATH" flag partial backend configuration. To specify a single key/value pair, use the -backend-config="KEY=VALUE" option when running terraform init.
 
-	[Optional] terraform fmt
-	. The terraform fmt command is used to rewrite Terraform configuration files to a canonical format and style. use "-recursive" flag to format the code inside all folders.
+[Optional] terraform validate
+> To check whether a configuration is syntactically valid and internally consistent, regardless of any provided variables or existing state.
 
-	[Optional] terraform plan -var-file="resource.tfvars" -out=tfplan
-	[Required] terraform apply -var-file="resource.tfvars" -auto-approve
+[Optional] terraform fmt
+> The terraform fmt command is used to rewrite Terraform configuration files to a canonical format and style. use "-recursive" flag to format the code inside all folders.
+
+[Optional] terraform plan -var-file="resource.tfvars" -out=tfplan
+[Required] terraform apply -var-file="resource.tfvars" -auto-approve
 	
-	[Optional] terraform state list
-	
-	. The command will list all resources in the state file matching the given addresses (if any). If no addresses are given, all resources are listed.
+[Optional] terraform state list
+> The command will list all resources in the state file matching the given addresses (if any). If no addresses are given, all resources are listed.
 
-	[Optional] terraform output
-	. The terraform output command is used to extract the value of an output variable from the state file.
+[Optional] terraform output
+> The terraform output command is used to extract the value of an output variable from the state file.
 
-	[Optional] terraform show
-	. The terraform show command is used to provide human-readable output from a state or plan file. This can be used to inspect the current state as Terraform sees it.
+[Optional] terraform show
+> The terraform show command is used to provide human-readable output from a state or plan file. This can be used to inspect the current state as Terraform sees it.
 
-	[Optional] terraform destroy -target="resource_type.resource_name"
-	. The terraform destroy command is used to destory the resources defined in your Terraform configuration. To delete the specific resource, use the "target" option with destroy command.
+[Optional] terraform destroy -target="resource_type.resource_name"
+> The terraform destroy command is used to destory the resources defined in your Terraform configuration. To delete the specific resource, use the "target" option with destroy command.
 
 ## Reference:
 
