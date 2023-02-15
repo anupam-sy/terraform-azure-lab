@@ -1,23 +1,9 @@
 # Terraform
 Terraform is a popular cloud agnostic IaC (Infrastructure as a Code) tool. Cloud-agnostic – meaning it lets us deploy and manage infrastructure across a variety of public cloud providers such as AWS, Azure and Google Cloud Platform.
+
 Different cloud providers have their native IaC tool as well such as Cloud Formation for AWS, ARM Templates & Bicep for Azure and Google Deployment Manager for GCP.
 
-## Variable Precedence
-If the same variable is assigned multiple values, Terraform uses the last value it finds, overriding any previous values.
-
-Terraform loads variables in the following order, with later sources taking precedence over earlier ones:
-
-1. Environment variables
-2. The terraform.tfvars file, if present.
-3. The terraform.tfvars.json file, if present.
-4. Any *.auto.tfvars or *.auto.tfvars.json files, processed in lexical order of their filenames.
-5. Any -var and -var-file options on the command line, in the order they are provided. (This includes variables set by a Terraform Cloud workspace.)
-
-Declaring a variable means you are gonna use a variable & Defining a variable means that you are giving a variable a value.
-The *.tf file is used to declare that the variable exists whereas The *.tfvars files are used to define variables and then specify that variable definition file on the command line with -var-file.
-
-
-## Terraform Commands:
+## Terraform Commands (CLI)
 For multiple environment provisioning, use different tfstate files in backend. To execute the Terraform code, go to command prompt and then run the following commands:
 
 [Required] `terraform init`
@@ -48,6 +34,6 @@ Terraform ignores the -auto-approve flag when you pass a previously-saved plan f
 [Optional] `terraform destroy -target="resource_type.resource_name"`
 > The terraform destroy command is used to destory the resources defined in your Terraform configuration. To delete the specific resource, use the "target" option with destroy command.
 
-## Reference:
+## Reference
 
 > https://medium.com/@gmusumeci/getting-started-with-terraform-and-microsoft-azure-a2fcb690eb67
