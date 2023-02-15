@@ -32,7 +32,7 @@ To execute the Terraform code, go to command prompt and then run the following c
 -   [Optional] `terraform plan`
 -   [Required] `terraform apply -auto-approve`
 
-**Note:** See [Terraform-Guide](./docs/learn.md) to get real-quick overview of Terraform.
+**Note:** See [Terraform-Guide](./docs/info.md) to get real-quick overview of Terraform.
 
 ## References
 
