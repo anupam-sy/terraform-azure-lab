@@ -1,40 +1,39 @@
-# Terraform Code Sets
-This repository contains Terraform code for Individual Resource deployment on Azure Public Cloud.
+# Terraform Azure Lab
+This repository contains Terraform code for infrastructure deployment on Azure Public Cloud.
 
-## Prerequisites:
-Resources in this repository are meant for use with Terraform 1.0.0 (Check the version using below command). If you don't have the compatible version, download it from official Terraform repository.
+## Prerequisites
+Below prerequisites must be fulfilled for successful execution of code.
 
-	terraform --version
-
-## Requirements
-
-### Software
+### Software Requirement
+Resources in this repository are meant for use with Terraform 1.0.0 (Check the version using `terraform version`). If you don't have the compatible version, download it from official Terraform repository. See [Installation-Guide](./docs/install.md) on how to install Terraform.
 
 -   [Terraform](https://www.terraform.io/downloads.html) >= 1.0.0
 -   [terraform-provider-azurerm] plugin = 2.46.0
 -   [terraform-provider-random] plugin = 3.0.0
 
-## Execution:
-For multiple environment provisioning, use different tfstate files in backend. To execute the Terraform code, go to command prompt and then run the following commands:
+### Permissions Requirement
+In order to execute these templates you must have:
+- An App registered on Azure Active Directory 
+- App ID is given "Owner" role on the subscription where you want to deploy the resources.
+
+**Note:** 
+1. Make sure to not pass the sensitive informations (like App ID, App Secret, Subscription ID, Tenant ID) in your terraform code. Though store as an environment variables or as a secret variables in CICD, if using pipelines.
+
+2. An storage account must pre-exist in order to store the state files, if using remote backend. It is typically recommended to use some kind of remote backend (generally storage account, if deploying resources on azure) to ensure the safety of state file(s) and enable the collobaration of peers in project.
+
+3. Access can be more fine-grained to follow Principle of least privilege (PoLP). But, typically AD APP used for infrastructure provisioning using terraform has privileged access in order to successfully deploy all the resources.
+
+## Execution
+To execute the Terraform code, go to command prompt and then run the following commands:
 
 -   [Required] `terraform init`
-    -   To initialize the terraform with remote backend, use "-backend-config=PATH" flag partial backend configuration. To specify a single key/value pair, use the -backend-config="KEY=VALUE" option when running terraform init.
-
 -   [Optional] `terraform validate`
-    -   To check whether a configuration is syntactically valid and internally consistent, regardless of any provided variables or existing state.
-
 -   [Optional] `terraform fmt`
-    -   The terraform fmt command is used to rewrite Terraform configuration files to a canonical format and style. use "-recursive" flag to format the code inside all folders.
+-   [Optional] `terraform plan`
+-   [Required] `terraform apply -auto-approve`
 
--   [Optional] `terraform plan -var-file="resource.tfvars" -out=tfplan`
-    -   It creates an execution plan. You can use the optional -out=FILE option to save the generated plan to a file on disk, which you can later execute by passing the file to terraform apply as an extra argument.
+**Note:** See [Terraform-Guide](./docs/learn.md) to get real-quick overview of Terraform.
 
--   [Required] `terraform apply -var-file="resource.tfvars" -auto-approve`
-    -   It executes the actions proposed in a Terraform plan. In the default case, with no saved plan file, Terraform will prompt you to approve the plan before taking the described actions, unless you override that prompt using the -auto-approve option. Terraform ignores the -auto-approve flag when you pass a previously-saved plan file, because Terraform considers you passing the plan file as the approval.
+## References
 
--   [Optional] `terraform destroy -target="resource_type.resource_name"`
-    -   The terraform destroy command is used to destory the resources defined in your Terraform configuration. To delete the specific resource, use the "target" option with destroy command.
-
-## Reference:
-
-> https://medium.com/@gmusumeci/getting-started-with-terraform-and-microsoft-azure-a2fcb690eb67
+- https://medium.com/@gmusumeci/getting-started-with-terraform-and-microsoft-azure-a2fcb690eb67
