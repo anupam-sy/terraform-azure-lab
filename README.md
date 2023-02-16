@@ -20,7 +20,9 @@ In order to execute these templates you must have:
 **Note:** 
 1. Terraform recommends using either a Service Principal or Managed Service Identity when running Terraform non-interactively (such as when running Terraform in a CI server) - and authenticating using the Azure CLI when running Terraform locally.
 
-2. Make sure to not pass the sensitive informations (like App ID, App Secret, Subscription ID, Tenant ID and Backend storage account access key) in your terraform code. Though store as an environment variables or as a secret variables in CICD, if using pipelines.
+2. Make sure to not pass the sensitive informations (like App ID, App Secret, Subscription ID, Tenant ID and Backend storage account access key) in your terraform code. Though store as an environment variables or as a secret variables in CICD, if using pipelines and then pass - 
+    -   Backend authentication credential using "-backend-config" argument while executing terraform init.
+    -   Azure authentication credential using "-var" flags while executing terraform plan, apply or destroy commands.
 
 3. An storage account must pre-exist in order to store the state files, if using remote backend. It is typically recommended to use some kind of remote backend (generally storage account, if deploying resources on azure) to ensure the safety of state file(s) and enable the collobaration of peers in project.
 
